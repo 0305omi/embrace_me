@@ -39,6 +39,13 @@
             overflow-x: hidden;
         }
 
+        /* --- Text Highlights --- */
+        strong {
+            background: linear-gradient(transparent 60%, rgba(209, 122, 93, 0.4) 60%);
+            font-weight: 600;
+            padding: 0 2px;
+        }
+
         /* --- Header --- */
         header {
             position: fixed;
@@ -65,6 +72,16 @@
         .nav-menu {
             display: none;
         }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .hamburger, .mobile-menu {
+            display: none;
+        }
+
         @media (min-width: 768px) {
             .nav-menu {
                 display: flex;
@@ -120,18 +137,27 @@
             position: relative; z-index: 2;
             text-align: center;
             padding: 0 20px;
+            width: 100%;
         }
         .hero-content h1 {
             font-family: var(--font-serif);
-            font-size: clamp(1.4rem, 4vw, 2.6rem);
-            font-weight: 300;
-            letter-spacing: 0.2em;
-            line-height: 2.2;
+            font-size: clamp(1.4rem, 4vw, 2.4rem);
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            line-height: 1.8;
             color: var(--color-text);
             text-shadow: 0 2px 15px rgba(255,255,255,0.5);
         }
+        .hero-subtext {
+            font-family: var(--font-en);
+            font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+            letter-spacing: 0.15em;
+            margin-top: 1.5rem;
+            color: var(--color-text);
+            opacity: 0.85;
+        }
         .hero-tagline {
-            margin-top: 3rem;
+            margin-top: 3.5rem;
             font-size: 0.95rem;
             letter-spacing: 0.15em;
             color: var(--color-text);
@@ -165,13 +191,14 @@
             font-size: 1.8rem;
             font-weight: 400;
             letter-spacing: 0.08em;
+            line-height: 1.6;
             position: relative;
             display: inline-block;
         }
 
         /* --- Philosophy Section --- */
-        .philosophy-text { margin-bottom: 40px; }
-        .philosophy-text p { text-wrap: balance; }
+        .philosophy-text { margin-bottom: 40px; text-align: left; }
+        .philosophy-text p { line-height: 1.8; margin-bottom: 0; }
         .no-wrap { display: inline-block; }
         
         .highlight-box {
@@ -239,13 +266,13 @@
         .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            gap: 25px; /* ガップを縮小 */
             margin-bottom: 100px;
         }
         .service-card {
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(8px);
-            padding: 50px 35px;
+            padding: 40px 25px; /* 余白を縮小 */
             border-radius: 24px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.8);
@@ -268,25 +295,26 @@
             color: var(--color-terracotta);
             font-weight: 600;
             letter-spacing: 0.2em;
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* 縮小 */
             display: inline-block;
         }
         .service-card h3 {
             font-family: var(--font-serif);
-            font-size: 1.4rem;
-            margin-bottom: 20px;
+            font-size: 1.3rem; /* 縮小 */
+            margin-bottom: 15px; /* 縮小 */
             line-height: 1.6;
         }
         .service-card .description {
-            font-size: 0.9rem;
-            margin-bottom: 30px;
+            font-size: 0.85rem; /* 縮小 */
+            margin-bottom: 20px; /* 縮小 */
             flex-grow: 1;
             text-align: left;
             color: #555;
+            line-height: 1.8;
         }
         .service-card .meta-info {
             border-top: 1px dashed var(--color-line);
-            padding-top: 25px;
+            padding-top: 15px; /* 縮小 */
             text-align: left;
         }
         .service-card .meta-item {
@@ -305,7 +333,7 @@
         /* --- Compact Vertical Flow --- */
         .flow-section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px; 
         }
         .flow-section-title h3 {
             font-family: var(--font-serif);
@@ -337,13 +365,13 @@
         }
         .flow-item {
             position: relative;
-            padding-bottom: 30px;
+            padding-bottom: 18px; 
             padding-left: 35px;
         }
         .flow-item::before {
             content: '';
             position: absolute;
-            left: -35px; top: 25px;
+            left: -35px; top: 20px;
             width: 12px; height: 12px;
             background: #fff;
             border: 2px solid var(--color-terracotta);
@@ -354,7 +382,7 @@
         .flow-content-box {
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(5px);
-            padding: 25px 30px;
+            padding: 15px 25px; 
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 5px 15px rgba(0,0,0,0.02);
@@ -364,7 +392,7 @@
 
         .flow-item h4 {
             font-size: 1.05rem;
-            margin-bottom: 10px;
+            margin-bottom: 6px; 
             font-family: var(--font-serif);
         }
         .flow-item h4 span {
@@ -381,7 +409,7 @@
             font-weight: 400;
         }
         .flow-interval-small {
-            padding: 20px 0 20px 35px;
+            padding: 10px 0 10px 35px; 
             position: relative;
         }
         .flow-interval-small span {
@@ -400,12 +428,13 @@
             max-width: 750px;
             margin: 0 auto;
             border: 1px solid rgba(209, 122, 93, 0.4);
-            padding: 80px 50px;
+            padding: 50px 30px; /* 余白を縮小 */
             position: relative;
             border-radius: 24px;
             text-align: center;
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(197, 137, 113, 0.1);
+            margin-top: 30px;
         }
         .cta-box::before {
             content: '';
@@ -428,14 +457,18 @@
             display: inline-block;
             background: var(--color-terracotta);
             color: #fff;
-            padding: 1.3rem 4rem;
+            padding: 1rem 3rem; /* 少しコンパクトに */
             text-decoration: none;
             letter-spacing: 0.15em;
             font-weight: 600;
             border-radius: 60px;
             transition: 0.4s;
-            margin-top: 40px;
+            margin-top: 25px; /* 縮小 */
             box-shadow: 0 10px 25px rgba(209, 122, 93, 0.3);
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-round);
+            white-space: nowrap; /* 不自然な改行を防ぐ */
         }
         .btn:hover {
             transform: translateY(-4px) scale(1.02);
@@ -444,6 +477,10 @@
         }
 
         /* --- Profile --- */
+        #profile {
+            background: var(--color-bg); 
+            padding: 100px 10%; 
+        }
         .profile-wrap {
             display: flex; 
             flex-wrap: nowrap; 
@@ -470,10 +507,15 @@
         .profile-info .title-en {
             font-family: var(--font-en);
             font-size: 1rem; color: var(--color-terracotta);
-            margin-bottom: 2rem; display: block;
+            margin-bottom: 1.5rem; display: block; 
             letter-spacing: 0.1em; font-weight: 500;
         }
-        .profile-info p { font-size: 0.95rem; margin-bottom: 1.5rem; color: #444; }
+        .profile-info p { 
+            font-size: 0.95rem; 
+            margin-bottom: 1rem; 
+            color: #444; 
+            line-height: 1.8; 
+        }
 
         /* --- Journal --- */
         .journal-grid {
@@ -517,19 +559,305 @@
         .lightbox-img { max-width: 85%; max-height: 80vh; border-radius: 10px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
         .lightbox-close { position: absolute; top: 40px; right: 40px; color: var(--color-text); font-size: 3rem; cursor: pointer; }
 
-        /* --- Footer --- */
-        .social-links { display: flex; justify-content: center; gap: 40px; padding: 60px 0; background: var(--color-beige); }
-        .social-links a { color: var(--color-terracotta); transition: 0.3s; }
-        .social-links a:hover { transform: scale(1.2) rotate(5deg); opacity: 0.8; }
-        footer { padding: 50px 5%; text-align: center; font-size: 0.85rem; color: #999; background: var(--color-bg); letter-spacing: 0.05em; }
+        /* --- Form Modal --- */
+        .form-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(45, 41, 38, 0.3);
+            backdrop-filter: blur(10px);
+            z-index: 4000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; transition: 0.4s ease;
+        }
+        .form-modal.active { display: flex; opacity: 1; }
+        .form-container {
+            background: var(--color-bg);
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+        }
+        .form-close {
+            position: absolute;
+            top: 20px; right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--color-text);
+            opacity: 0.5;
+            transition: 0.3s;
+        }
+        .form-close:hover { opacity: 1; }
+        
+        .form-header { text-align: center; margin-bottom: 30px; }
+        .form-header h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 15px; }
+        .form-header p { font-size: 0.85rem; line-height: 1.8; color: #666; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--color-text); }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--color-line);
+            border-radius: 12px;
+            background: #fff;
+            font-family: var(--font-round);
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-terracotta);
+            box-shadow: 0 0 0 3px rgba(209, 122, 93, 0.1);
+        }
+        .form-group .note { font-size: 0.75rem; color: #888; margin-top: 6px; line-height: 1.5; }
+
+        /* --- Utility Classes --- */
+        .sp-br { display: none; }
+        .sp-br-space { display: none; }
 
         @media (max-width: 768px) {
-            section { padding: 100px 7%; }
+            section { padding: 90px 7%; }
+            #profile { padding: 90px 7%; }
             .profile-wrap { flex-direction: column; text-align: center; }
             .profile-img { flex: 0 0 auto; max-width: 200px; margin: 0 auto; }
-            .profile-info { text-align: center; }
-            .compact-flow { padding-left: 20px; }
-            .hero-content h1 { font-size: 1.5rem; }
+            .profile-info { text-align: left; } 
+            
+            /* PC用装飾をスマホで隠す */
+            .pc-only { display: none; }
+            .pc-br { display: none; }
+
+            /* スマホ用改行・文字サイズ調整 */
+            .sp-br { display: inline; }
+            .sp-br-space { display: block; height: 1em; }
+            
+            /* スマホでの各セクションの余白を詰める */
+            .section-title { margin-bottom: 40px; }
+            .section-title.mt-block { margin-top: 70px !important; } 
+            .section-title h2 { font-size: 1.15rem; line-height: 1.6; } 
+            
+            /* 目の滑り防止：左寄せと読みやすい行間 */
+            .philosophy-text { padding: 0 10px; }
+            .philosophy-text p { 
+                font-size: 0.95rem; 
+                line-height: 1.8; 
+                margin-bottom: 0; 
+                text-align: left; 
+            }
+            .highlight-box { font-size: 1rem; line-height: 2; padding: 40px 20px; margin: 50px 0; text-wrap: wrap; }
+
+            /* 1. Heroテキストの改行とサイズ調整 */
+            .hero-content { padding: 0 15px; }
+            .hero-content h1 {
+                font-size: 1.25rem;
+                line-height: 1.6;
+                word-break: keep-all; 
+            }
+            .hero-subtext {
+                font-size: 0.95rem;
+                margin-top: 12px;
+                line-height: 1.6;
+                word-break: keep-all;
+            }
+            .hero-tagline {
+                margin-top: 2rem;
+                font-size: 0.85rem;
+                line-height: 1.6;
+                word-break: keep-all;
+            }
+            .hero-tagline .en {
+                font-size: 0.95rem;
+                margin-bottom: 5px;
+            }
+
+            /* 2. Serviceテキスト・カード（スマホ用によりコンパクトに） */
+            .service-intro {
+                font-size: 0.85rem;
+                line-height: 1.7;
+                margin-bottom: 40px;
+                padding: 0 10px;
+            }
+            .service-intro p {
+                word-break: keep-all;
+            }
+            .service-card {
+                padding: 25px 20px; /* 余白をさらに縮小 */
+            }
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+            .service-card .description {
+                margin-bottom: 15px;
+            }
+
+            /* 3. Momentsスライダー */
+            .moments-slider {
+                padding: 30px 0;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+            .moments-slider::-webkit-scrollbar {
+                display: none; 
+            }
+            .moments-track {
+                animation: none !important; 
+                width: max-content;
+                padding: 0 5%;
+                gap: 12px;
+                display: flex;
+            }
+            .moment-item {
+                width: 220px; 
+                height: 310px;
+                scroll-snap-align: center;
+                padding: 0; 
+            }
+
+            /* 4. フォトコーチングの詳しい流れ */
+            .compact-flow {
+                padding-left: 0;
+            }
+            .compact-flow::before {
+                display: none; 
+            }
+            .flow-item {
+                padding-left: 0;
+                padding-bottom: 15px;
+            }
+            .flow-item::before {
+                display: none; 
+            }
+            .flow-content-box {
+                padding: 15px 20px; 
+                border-radius: 12px;
+            }
+            .flow-item h4 {
+                font-size: 0.95rem;
+                margin-bottom: 5px;
+            }
+            .flow-item h4 span {
+                font-size: 0.9rem;
+                margin-right: 10px;
+            }
+            .flow-item .time-tag {
+                font-size: 0.75rem;
+            }
+            .flow-item p {
+                font-size: 0.8rem;
+                line-height: 1.5;
+                word-break: keep-all;
+            }
+            .flow-interval-small {
+                padding: 10px 0 15px 0;
+                text-align: center;
+            }
+            .flow-interval-small span {
+                font-size: 0.75rem;
+                padding: 4px 15px;
+            }
+
+            /* 5. First Step（スマホ用によりコンパクトに） */
+            .cta-box {
+                padding: 35px 20px; /* 縮小 */
+                border-radius: 16px;
+            }
+            .cta-box h3 {
+                font-size: 1.15rem !important;
+                margin-bottom: 15px !important;
+            }
+            .cta-box p {
+                font-size: 0.85rem !important;
+                line-height: 1.6;
+                word-break: keep-all;
+            }
+            .btn {
+                padding: 0.9rem 1rem; /* スマホでボタンが横に長くなりすぎないよう調整 */
+                font-size: 0.9rem;
+                margin-top: 20px;
+            }
+
+            /* 6. Profileテキスト */
+            .profile-info p {
+                font-size: 0.85rem;
+                line-height: 1.9;
+                word-break: keep-all;
+                text-align: left;
+            }
+            .profile-info p:last-of-type {
+                font-size: 1.05rem !important; 
+                line-height: 1.6;
+                margin-top: 2rem !important;
+                text-align: center;
+            }
+
+            /* ハンバーガーメニュー */
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 26px;
+                height: 18px;
+                cursor: pointer;
+                z-index: 1001;
+                margin-left: 15px;
+            }
+            .hamburger span {
+                display: block;
+                height: 2px;
+                width: 100%;
+                background-color: var(--color-text);
+                transition: 0.3s;
+                border-radius: 2px;
+            }
+            .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+            .mobile-menu {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0; left: 0; width: 100%; height: 100vh;
+                background: rgba(250, 249, 246, 0.98);
+                z-index: 999;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                opacity: 0;
+                pointer-events: none;
+                transition: 0.4s ease;
+            }
+            .mobile-menu.active {
+                opacity: 1;
+                pointer-events: auto;
+            }
+            .mobile-menu a {
+                font-family: var(--font-en);
+                font-size: 1.5rem;
+                color: var(--color-text);
+                text-decoration: none;
+                letter-spacing: 0.1em;
+            }
+            .mobile-menu a.contact-btn {
+                font-family: var(--font-round);
+                font-size: 1.1rem;
+                font-weight: 600;
+                border-bottom: 2px solid var(--color-terracotta);
+                padding-bottom: 5px;
+                margin-top: 10px;
+            }
+
+            /* --- スマホ時のモーダル調整 --- */
+            .form-container { padding: 50px 20px 30px; } /* ×ボタンと被らないよう上余白を増やす */
+            .form-close { top: 12px; right: 15px; font-size: 2.2rem; }
+            .form-header h3 { font-size: 1.25rem; line-height: 1.5; margin-bottom: 15px; }
+            .form-header p { text-align: left; font-size: 0.85rem; line-height: 1.8; word-break: keep-all; padding: 0 5px; }
         }
     </style>
 </head>
@@ -543,8 +871,21 @@
             <a href="#profile">Profile</a>
             <a href="#journal">Journal</a>
         </nav>
-        <a href="https://forms.gle/YOUR_FORM_ID" target="_blank" style="text-decoration:none; font-size:0.85rem; font-weight:600; color:var(--color-text); border-bottom:2px solid var(--color-terracotta); padding-bottom: 2px;">Contact</a>
+        <div class="header-right">
+            <button class="open-modal" style="background:none; border:none; border-bottom:2px solid var(--color-terracotta); cursor:pointer; font-family:var(--font-round); font-size:0.85rem; font-weight:600; color:var(--color-text); padding-bottom: 2px;">Contact</button>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
     </header>
+
+    <nav class="mobile-menu" id="mobile-menu">
+        <a href="#philosophy" class="mobile-link">Philosophy</a>
+        <a href="#service" class="mobile-link">Service</a>
+        <a href="#profile" class="mobile-link">Profile</a>
+        <a href="#journal" class="mobile-link">Journal</a>
+        <button class="mobile-link contact-btn open-modal" style="background:none; border:none; cursor:pointer; color:var(--color-text);">Contact</button>
+    </nav>
 
     <section class="hero">
         <div class="watercolor-canvas">
@@ -554,38 +895,78 @@
             <div class="blob blob-4"></div>
         </div>
         <div class="hero-content" data-aos="fade-up" data-aos-duration="2500">
-            <h1>揺らぐ心も、大切なあなたのらしさ。<br>全部抱えて、この人生を遊び尽くそう！</h1>
+            <h1>あなたという、<br class="sp-br">唯一無二の輝きに出会う時間</h1>
             <div class="hero-tagline">
                 <span class="en">Photo Coaching for your essence</span>
-                コーチングと写真で、本来の輝きを解き放つプロフィール撮影
+                コーチングと写真で、本来の輝きを<br class="sp-br">解き放つプロフィール撮影
             </div>
         </div>
     </section>
 
     <section id="philosophy">
-        <div class="container-s" data-aos="fade-up">
-            <div class="section-title">
+        <div class="container-s">
+            
+            <div class="section-title" data-aos="fade-up">
                 <span>Philosophy</span>
-                <h2>「写真」は、自分を信じるための<br>最強の味方になる</h2>
+                <h2>「成功」という名の鎧が、<br>いつの間にか脱げなくなっていたあなたへ。</h2>
             </div>
             
-            <div class="philosophy-text">
-                <p>「もっと頑張らなきゃ」「ちゃんとしなきゃ」<br>
-                社会の波に揉まれる中で、いつしか自分の輪郭を見失いそうになっていませんか。</p>
-                <p>Embrace me! は、何者かになろうとする歩みを一度止め、そのままの自分をただ受け入れるための<span class="no-wrap">プロセスを提供します。</span></p>
+            <div class="philosophy-text" data-aos="fade-up">
+                <p>役職、家庭、親としての責任。<br>
+                期待に応え、完璧な役割を<br class="sp-br">演じてきた日々は、誇るべきものです。</p>
+                
+                <p style="margin-top: 1.5em;">けれど、その完璧さの影で<br>
+                <strong>「あなた」という一人の人間</strong>は、<br>
+                どこか置き去りに<br class="sp-br">されていませんでしたか？</p>
+                
+                <p style="margin-top: 1.5em;">誰のためでもない、あなた自身の素顔。<br>
+                誰にも見せてこなかった、<br class="sp-br">無邪気で不器用で、<br class="sp-br">愛おしいあなたの本音。</p>
             </div>
 
             <div class="highlight-box" data-aos="zoom-in" data-aos-delay="200">
-                「正しさ」を脱ぎ捨てて、「あなた」に戻る。<br>
-                レンズ越しに見つめるのは、あなたがまだ気づいていない、内なる美しさです。
+                弱さや痛みも引き連れて。<br>
+                私は私と、鮮やかに生きる。<br>
+                <span class="sp-br-space"></span>
+                その一歩を、ここから始めませんか。
             </div>
 
-            <div class="philosophy-text">
-                <p>対話を通じて、あなたの内側に眠る唯一無二の輝きを、写真というフィルターで鮮やかに切り撮ります。その一瞬は、あなたがあなたで在るための、小さくも力強い光になるはずです。</p>
+            <div class="section-title mt-block" style="margin-top: 100px;" data-aos="fade-up">
+                <h2>「正解の笑顔」を求める撮影は、<br>もう終わりにしましょう。</h2>
             </div>
+
+            <div class="philosophy-text" data-aos="fade-up">
+                <p>「笑ってください」「もっと背筋を伸ばして」<br>
+                そんな Doing（どう振る舞うか）だけの撮影は、今のあなたには必要ありません。</p>
+                
+                <p style="margin-top: 1.2em;">私が共につくるのは、Being（どう在るか）に触れる時間。<br>
+                撮影の現場で起きるのは、カメラマンと被写体の関係を超えた<strong>「いのちの対話」</strong>です。</p>
+                
+                <p style="margin-top: 2em; font-weight: 600; color: var(--color-terracotta); font-size: 1.1rem; text-align: left;">
+                    「弱いあなたも大切なあなた。<br class="sp-br">歓迎するよ」
+                </p>
+                
+                <p style="margin-top: 2em;">あなたが必死に守ってきたその「弱さ」も、「余裕のなさ」も、実はあなたが思っている以上に愛おしく、力強いエネルギーに満ちています。</p>
+                
+                <p style="margin-top: 1.2em;">カッコつけている自分もそっと抱きしめ、不器用な自分にも優しい光を当てる。<br>
+                その瞬間、あなたの瞳には、役割を脱ぎ捨てた「生命力」が宿ります。</p>
+            </div>
+
+            <div class="section-title mt-block" style="margin-top: 100px;" data-aos="fade-up">
+                <h2>「私、こんなに素敵に笑うんだ」<br>その驚きが、明日の色を変える。</h2>
+            </div>
+
+            <div class="philosophy-text" data-aos="fade-up">
+                <p>出来上がるのは、飾っておくためのポートレートではありません。<br>
+                「私はこれでいいんだ」という深い確信と、体温が少し上がるような、静かな興奮。</p>
+                
+                <p style="margin-top: 1.2em;">唯一無二の自分の魅力に会い直したとき、あなたが選ぶ言葉、選ぶ道、周りへの眼差しが、鮮やかに変わり始めます。</p>
+                
+                <p style="margin-top: 1.2em;">あなたのこれからの長い旅路。<br>
+                その大切な節目に、<strong>いのち</strong>を込めて伴走します。</p>
+            </div>
+
         </div>
     </section>
-
     <section id="moments" style="background: var(--color-bg); padding: 60px 0;">
         <div class="section-title">
             <span>Moments</span>
@@ -611,12 +992,12 @@
         <div class="container-l">
             <div class="section-title">
                 <span>Service</span>
-                <h2>自分を愛し、表現するための撮影メニュー</h2>
+                <h2>自分を愛し、<br class="sp-br">表現するための撮影メニュー</h2>
             </div>
 
             <div class="service-intro" data-aos="fade-up">
-                <p>ただ「きれいに」撮るのではなく、あなたの「本質」と出会い直すために。<br>
-                どのメニューでも、事前の意図合わせ（対話）を最も大切にしています。</p>
+                <p>ただ「きれいに」撮るのではなく、あなたの「本質」と出会い直すために。<br class="pc-br">
+                <span class="sp-br-space"></span>どのメニューでも、<br class="sp-br">事前の意図合わせ（対話）を<br class="sp-br">最も大切にしています。</p>
             </div>
 
             <div class="service-grid">
@@ -644,8 +1025,8 @@
             </div>
 
             <div class="flow-section-title" data-aos="fade-up">
-                <h3>🍃 フォトコーチングの詳しい流れ</h3>
-                <p style="font-size: 0.9rem; margin-top: 15px;">プロフィール撮影をご希望の方は、こちらのプロセスを歩んでいきます。</p>
+                <h3><span class="pc-only">🍃 </span>フォトコーチングの詳しい流れ</h3>
+                <p style="font-size: 0.9rem; margin-top: 15px;">プロフィール撮影をご希望の方は、<br class="sp-br">こちらのプロセスを歩んでいきます。</p>
             </div>
 
             <div class="compact-flow">
@@ -688,25 +1069,41 @@
                 <div class="cta-box">
                     <div class="cta-label">First Step</div>
                     <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 25px;">まずは、お話ししませんか？</h3>
-                    <p style="font-size: 0.95rem; position:relative; z-index:1;">「私に必要かな？」「撮られるのが苦手だけど大丈夫？」<br>そんなふんわりとした状態でのご相談、大歓迎です。</p>
-                    <a href="https://forms.gle/YOUR_FORM_ID" target="_blank" class="btn">無料相談会に申し込む</a>
+                    <p style="font-size: 0.95rem; position:relative; z-index:1;">「私に必要かな？」「撮られるのが苦手だけど大丈夫？」<br class="pc-br">そんなふんわりとした状態でのご相談、大歓迎です。</p>
+                    <button class="btn open-modal">オンライン無料相談会に申し込む</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="profile" style="background: var(--color-bg); padding: 140px 10%;">
+    <section id="profile">
         <div class="profile-wrap" data-aos="fade-up">
             <div class="profile-img">
-                <img src="./profile.jpg" alt="おみず プロフィール">
+                <img src="./profile.jpg" alt="プロフィール">
             </div>
             <div class="profile-info">
                 <span style="font-family: var(--font-en); color: var(--color-terracotta); font-size: 0.9rem; letter-spacing: 0.3em; display: block; margin-bottom: 10px; font-weight:500;">Guide</span>
                 <h2>おみず</h2>
                 <span class="title-en">Life Coach / Photo Coach</span>
-                <p>約10年間、ブライダルジュエリーの販売からIT企業の営業・研修担当まで、常に「人と向き合う最前線」に身を置いてきました。数えきれないほどの対話を通じて磨いてきたのは、相手の言葉の裏にある願いや、その人本来の輝きを見つけ出す力です。</p>
-                <p>私が大切にしているのは、「その人は今、自分自身と深く繋がっているか？」「そこに嘘がないか」という問いです。取り繕った正しさではなく、泥臭くても血の通った、本質的な生き方を。写真とコーチングという手段を使い、あなたの内側にある景色を形にします。</p>
-                <p style="margin-top: 3rem; font-weight: 600; color: var(--color-terracotta); font-size: 1.2rem; line-height: 2;">
+                
+                <p>約10年間、ブライダルジュエリーの販売から<br>
+                IT企業の営業・研修担当まで、<br>
+                人生の節目や決断の時に身を置いてきました。</p>
+                
+                <p>数えきれないほどの対話を通じて磨いてきたのは、<br>
+                相手の言葉の裏にある願いや、<br>
+                その人本来の輝きの瞬間を捉えることです。</p>
+                
+                <p>私自身、とても大切にしているのは、<br>
+                「今、私と深く繋がっているか？」<br>
+                「100％の自分で生きているか」という問いです。</p>
+                
+                <p>取り繕った正しさではなく、<br>
+                泥臭くても血の通った、本質的な生き方を。<br>
+                写真とコーチング（対話手法）を使い、<br>
+                あなたの内側にある景色を形にします。</p>
+                
+                <p style="margin-top: 2rem; font-weight: 600; color: var(--color-terracotta); font-size: 1.2rem; line-height: 2;">
                     あなたの大切な人生に、全身全霊で伴走します。
                 </p>
             </div>
@@ -716,6 +1113,40 @@
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <div id="form-modal" class="form-modal">
+        <div class="form-container">
+            <span class="form-close">&times;</span>
+            <div class="form-header">
+                <h3>オンライン無料相談会<br class="sp-br">お申し込み</h3>
+                <p>
+                    まずはお互いの相性を確かめる場として、<br class="sp-br">
+                    ざっくばらんにお話ししましょう。
+                </p>
+            </div>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label>名前</label>
+                    <input type="text" name="name" placeholder="お名前" required>
+                </div>
+                <div class="form-group">
+                    <label>メールアドレス</label>
+                    <input type="email" name="email" placeholder="email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>希望日時・メッセージ</label>
+                    <textarea name="message" rows="5" placeholder="ご希望の日時や、気になる点などをご記入ください"></textarea>
+                    <p class="note">
+                        例：平日希望です。撮影の具体的な流れについてもっと詳しく聞きたいです。<br>
+                        など、気になる点があれば自由に記載ください。
+                    </p>
+                </div>
+                <div style="text-align: center;">
+                    <button type="submit" class="btn">送信する</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <section id="journal" style="background: var(--color-beige); padding: 120px 10%;">
@@ -729,12 +1160,7 @@
         </div>
     </section>
 
-    <div class="social-links">
-        <a href="https://www.instagram.com/omizuu6/" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
-        <a href="https://note.com/minamo_tadayoi" target="_blank"><i class="fa-solid fa-pen-nib fa-2x"></i></a>
-    </div>
-
-    <footer>
+    <footer style="text-align: center; padding-bottom: 40px;">
         <p>&copy; 2026 Embrace me! All Rights Reserved.</p>
     </footer>
 
@@ -748,6 +1174,7 @@
             else { header.classList.remove('scrolled'); }
         });
 
+        /* --- Photo Lightbox Logic --- */
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = lightbox.querySelector('.lightbox-img');
         const momentItems = document.querySelectorAll('.moment-item img');
@@ -765,6 +1192,59 @@
             document.body.style.overflow = '';
         });
 
+        /* --- Form Modal Logic --- */
+        const formModal = document.getElementById('form-modal');
+        const openModalBtns = document.querySelectorAll('.open-modal');
+        const closeModalBtn = document.querySelector('.form-close');
+
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                formModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            formModal.classList.remove('active');
+            // モバイルメニューが開いていない場合のみスクロールを戻す
+            if(!document.getElementById('mobile-menu').classList.contains('active')) {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // モーダルの外側をクリックして閉じる
+        formModal.addEventListener('click', (e) => {
+            if (e.target === formModal) {
+                formModal.classList.remove('active');
+                if(!document.getElementById('mobile-menu').classList.contains('active')) {
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+        
+        /* --- Hamburger Menu Logic --- */
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Contactボタン(モーダル用)以外をクリックした時はメニューを閉じる
+                if(!link.classList.contains('open-modal')) {
+                    hamburger.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        /* --- Note RSS Feed Logic --- */
         document.addEventListener('DOMContentLoaded', function() {
             const rssUrl = 'https://note.com/minamo_tadayoi/rss';
             const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
